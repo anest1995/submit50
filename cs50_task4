@@ -1,0 +1,52 @@
+#include <cs50.h>
+#include <math.h>
+#include <stdio.h>
+
+float get_positive_float(string prompt);
+int main(void)
+{
+    float n = get_positive_float("Change:");
+    int c = round(n * 100);
+    int y = c % 25;
+    if (y == 0)
+    {
+        printf("%i\n", c / 25);
+    }
+    else
+    {
+        int z = (c - y) / 25;
+        int t = y % 10;
+    if (t == 0)
+    {
+        printf("%i\n", (y / 10) + z);
+    }
+        else
+        {
+            int f = ((y - t) / 10) + z;
+            int w = t % 5;
+            if (w == 0)
+            {
+                printf("%i\n", (t / 5) + f);
+            }
+            else
+            {
+                int p = ((t - w) / 5) + f;
+                int v = w % 1;
+                if (v == 0)
+                {
+                    printf("%i\n", (w / 1) + p);
+                }
+            }
+        }  
+    }
+}
+float get_positive_float(string prompt)
+    {
+        float n;
+        do
+        {
+            n = get_float("%s", prompt);
+        }
+        while(n < 0);
+        return n;
+    }
