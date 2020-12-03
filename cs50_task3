@@ -1,0 +1,39 @@
+#include <cs50.h>
+#include <stdio.h>
+int get_positive_int(string prompt);
+int main(void)
+{
+    int n = get_positive_int("Height:");
+    for (int i = 0; i < n; i++)
+    {
+        for ( int j = 0; j < n - i - 1; j++)
+        {
+            printf(" ");
+        }
+        for ( int x = 0; x < i + 1; x++)
+        {
+            printf("#");
+        }
+            printf("  ");
+        for ( int p = 0; p < i - n - 1;p++)
+        {
+            printf(" ");
+        }
+        for ( int e = 0; e < i + 1; e++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+}
+
+int get_positive_int(string prompt)
+{
+    int n;
+    do
+    {
+        n = get_int("%s", prompt);
+    }
+    while(n < 1 || n > 8);
+    return n;
+}
